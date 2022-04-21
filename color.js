@@ -11,51 +11,108 @@
     }
 
     setRed(red='00'){
-        if(typeof red !== 'string'){
-            throw new Error('В качестве цвета может быть указана только строка');
-        }
+       if(typeof red == 'number'){
+           if(red > 255 || red < 0 ){
+                throw new Error('Число для крассного оттенка может быть указано только в диапозоне от 0 до 255 включительно.');
+           }
+            
+           this.#_red = red.toString(16);
+       }
 
-        if(red.length !=2 ){
-            throw new Error('В качестве красного цвета может быть указана строка из двух символов для шестизначного кода цвета');
-        }
+       if(typeof red == 'string'){
+           if(red.length != 2){
+                throw new Error('Если вы указываете оттенок красного цвета в 16чной системе счисления, то нужно указывать минимум 2 символа от 00 до FF')
+           }
 
-        this.#_red = red;
+           let rCheck = parseInt(red,16);
+
+           if(rCheck > 255 || rCheck < 0 || rCheck === NaN){
+                throw new Error('Число для красного оттенка может быть указано только в диапозоне от 00 до ff включительно.');
+           }
+
+           this.#_red = red;
+       }
+        
     }
 
     setGreen(green='00'){
-        if(typeof green !== 'string'){
-            throw new Error('В качестве цвета может быть указана только строка');
-        }
+       if(typeof green =='number'){
+           if(green > 255  || green < 0){
+                throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 0 до 255 включительно.');
+           }
 
-        if(green.length != 2){
-            throw new Error('Количество символов при указании цвета должно быть 2');
-        }
+           this.#_green = green.toString(16);
+       }
 
-        this.#_green = green;
+       if(typeof green == 'string'){
+           if(green.length !=2){
+                throw new Error('Если вы указываете оттенок зеленого цвета в 16чной системе счисления, то нужно указывать минимум 2 символа от 00 до FF')
+           }
+
+           let gCheck = parseInt(green,16);
+
+           if(gCheck > 255 || gCheck < 0 || gCheck === NaN){
+                throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 00 до ff включительно.');
+           }
+
+           this.#_green = green;
+       }
+        
+
     }
 
     setBlue(blue='00'){
-        if(typeof blue !== 'string'){
-            throw new Error('В качестве цвета может быть указана только строка');
+        if(typeof blue =='number'){
+            if(blue >255  || blue < 0){
+                 throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 0 до 255 включительно.');
+            }
+        }
+ 
+        if(typeof blue == 'string'){
+            if(blue.length !=2){
+                 throw new Error('Если вы указываете оттенок зеленого цвета в 16чной системе счисления, то нужно указывать минимум 2 символа от 00 до FF')
+            }
+ 
+            let gCheck = parseInt(blue,16);
+ 
+            if(gCheck > 255 || gCheck < 0 || gCheck === NaN){
+                 throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 00 до ff включительно.');
+            }
+ 
+            this.#_blue = blue;
         }
 
-        if(blue.length != 2){
-            throw new Error('Количество символов долнжо равняться 2 при указании синего оттенка для шестизначного кода цвета')
+    }
+
+    getBlue(number=false){
+        if(number === true){
+
+            return parseInt(this.#_blue,16);
+
+        } else {
+
+            return this.#_blue;
+
         }
-
-        this.#_blue = blue;
+        
     }
 
-    getBlue(){
-        return this.#_blue;
+    getRed(number=false){
+        if(number === true){
+            return parseInt(this.#_red, 16);
+        }else{
+            return this.#_red;
+        }
+        
     }
 
-    getRed(){
-        this.#_red;
-    }
-
-    getGreen(){
-        return this.#_green;
+    getGreen(number=false){
+        if(number === true){
+            return parseInt(this.#_green,16);
+        } else {
+            return this.#_green;
+        }
+        
     }
 
     getColor(){
