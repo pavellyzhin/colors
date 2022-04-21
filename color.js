@@ -66,6 +66,8 @@
             if(blue >255  || blue < 0){
                  throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 0 до 255 включительно.');
             }
+
+            this.#_blue = blue.toString(16);
         }
  
         if(typeof blue == 'string'){

@@ -2,7 +2,6 @@ class Orange extends Red {
 
     constructor(){
         super();
-        this.setGreen(this.getGreen(true)+50);
-        
+        this.setGreen(255);
     }
 }
