@@ -1,4 +1,5 @@
-class Green extends Color {
+import {Color} from '../color';
+export class Green extends Color {
     
     constructor(){
         super();

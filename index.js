@@ -1,3 +1,5 @@
+import {Red} from './colors/red';
+import { Orange } from './colors/orange';
 const app = document.createElement('div');
 const container = document.createElement('div');
 app.className = 'app';
