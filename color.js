@@ -1,4 +1,4 @@
-﻿export class Color {
+﻿class Color {
 
     #_red = '00'; // оттенок красного
     #_green = '00'; // оттенок зеленого
