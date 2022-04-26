@@ -1,8 +1,8 @@
 ﻿class Color {
 
-    #_red = '00'; // оттенок красного
-    #_green = '00'; // оттенок зеленого
-    #_blue = '00'; // оттенок синего
+    #_red   = '00' ; // оттенок красного
+    #_green = '00' ; // оттенок зеленого
+    #_blue  = '00' ; // оттенок синего
 
     constructor({red='00',green='00',blue='00'} = {}){
         this.setBlue(blue);
@@ -10,8 +10,8 @@
         this.setGreen(green);
     }
 
-    setRed(red='00'){
-       if(typeof red == 'number'){
+    setRed(red = '00') {
+       if(typeof red === 'number'){
            if(red > 255 || red < 0 ){
                 throw new Error('Число для крассного  оттенка может быть указано только в диапозоне от 0 до 255 включительно.');
            }
@@ -19,7 +19,7 @@
            this.#_red = red.toString(16);
        }
 
-       if(typeof red == 'string'){
+       if(typeof red === 'string'){
            if(red.length != 2){
                 throw new Error('Если вы указываете оттенок красного цвета в 16чной системе счисления, то нужно указывать минимум 2 символа от 00 до FF')
            }
@@ -35,8 +35,8 @@
         
     }
 
-    setGreen(green='00'){
-       if(typeof green =='number'){
+    setGreen(green = '00'){
+       if(typeof green === 'number'){
            if(green > 255  || green < 0){
                 throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 0 до 255 включительно.');
            }
@@ -44,14 +44,14 @@
            this.#_green = green.toString(16);
        }
 
-       if(typeof green == 'string'){
+       if(typeof green === 'string'){
            if(green.length !=2){
                 throw new Error('Если вы указываете оттенок зеленого цвета в 16чной системе счисления, то нужно указывать минимум 2 символа от 00 до FF')
            }
 
            let gCheck = parseInt(green,16);
 
-           if(gCheck > 255 || gCheck < 0 || gCheck === NaN){
+           if(gCheck > 255 || gCheck < 0 || isNaN(gCheck)){
                 throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 00 до ff включительно.');
            }
 
@@ -62,7 +62,7 @@
     }
 
     setBlue(blue='00'){
-        if(typeof blue =='number'){
+        if(typeof blue === 'number'){
             if(blue >255  || blue < 0){
                  throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 0 до 255 включительно.');
             }
@@ -70,14 +70,14 @@
             this.#_blue = blue.toString(16);
         }
  
-        if(typeof blue == 'string'){
+        if(typeof blue === 'string'){
             if(blue.length !=2){
                  throw new Error('Если вы указываете оттенок зеленого цвета в 16чной системе счисления, то нужно указывать минимум 2 символа от 00 до FF')
             }
  
             let gCheck = parseInt(blue,16);
  
-            if(gCheck > 255 || gCheck < 0 || gCheck === NaN){
+            if(gCheck > 255 || gCheck < 0 || isNaN(gCheck)){
                  throw new Error('Число для зеленого оттенка может быть указано только в диапозоне от 00 до ff включительно.');
             }
  
@@ -86,7 +86,7 @@
 
     }
 
-    getBlue(number=false){
+    getBlue(number = false){
         if(number === true){
 
             return parseInt(this.#_blue,16);
@@ -121,3 +121,4 @@
         return '#' + this.#_red + this.#_green + this.#_blue;
     }
 }
+
