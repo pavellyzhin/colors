@@ -87,33 +87,15 @@
     }
 
     getBlue(number = false){
-        if(number === true){
-
-            return parseInt(this.#_blue,16);
-
-        } else {
-
-            return this.#_blue;
-
-        }
-        
+        return number ? parseInt(this.#_blue,16) : this.#_blue;
     }
 
     getRed(number=false){
-        if(number === true){
-            return parseInt(this.#_red, 16);
-        }else{
-            return this.#_red;
-        }
-        
+         return number ? parseInt(this.#_red, 16) : this.#_red;
     }
 
     getGreen(number=false){
-        if(number === true){
-            return parseInt(this.#_green,16);
-        } else {
-            return this.#_green;
-        }
+        return number ? parseInt(this.#_green,16) : this.#_green;
         
     }
 
